@@ -8,6 +8,10 @@ App::uses('YougalAppModel', 'Yougal.Model');
  */
 class Collection extends YougalAppModel {
 
+	public $actsAs = array(
+		'Params',
+	);
+
 /**
  * Display field
  *

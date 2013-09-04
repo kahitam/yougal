@@ -1,5 +1,6 @@
 <?php
 App::uses('YougalAppModel', 'Yougal.Model');
+App::uses('Youtube', 'Yougal.Lib');
 /**
  * Video Model
  *
@@ -7,6 +8,10 @@ App::uses('YougalAppModel', 'Yougal.Model');
  * @property Genre $Genre
  */
 class Video extends YougalAppModel {
+
+	public $actsAs = array(
+		'Params',
+	);
 
 /**
  * Display field
@@ -82,5 +87,31 @@ class Video extends YougalAppModel {
 			'insertQuery' => ''
 		)
 	);
+
+	public function __construct($id = false, $table = null, $ds = null) {
+		parent::__construct($this->name, $this->useTable, $this->useDbConfig);
+		$this->Youtube = new Youtube;
+	}
+
+/**
+ * Get youtube data from API beforeSaving
+ */
+	public function beforeSave($options = array()) {
+		if (!empty($this->data['Video']['url'])) {
+			$yId = $this->Youtube->getID($this->data['Video']['url']);
+			$youtube = $this->Youtube->parseVideo($yId);
+			$title = $youtube->title;
+			$des = $youtube->desc;
+			$this->data['Video']['title'] = $title;
+			if (empty($desc)) {
+				$this->data['Video']['description'] = null;
+			} else {
+				$this->data['Video']['description'] = $youtube->desc;
+			}
+			$this->data['Video']['author'] = $youtube->author;
+			$this->data['Video']['slug'] = strtolower(Inflector::slug($title, '-'));
+		}
+		return true;
+	}
 
 }
