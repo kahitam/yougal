@@ -7,6 +7,10 @@ App::uses('YougalAppModel', 'Yougal.Model');
  */
 class Genre extends YougalAppModel {
 
+	public $actsAs = array(
+		'Croogo.Trackable'
+	);
+
 /**
  * Display field
  *

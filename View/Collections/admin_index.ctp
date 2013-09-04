@@ -21,7 +21,7 @@ $this->Html
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('created_by'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
-		<th><?php echo $this->Paginator->sort('modified_by'); ?></th>
+		<th><?php echo $this->Paginator->sort('updated_by'); ?></th>
 		<th class="actions"><?php echo __d('croogo', 'Actions'); ?></th>
 	</tr>
 	<?php foreach ($collections as $collection): ?>
@@ -38,7 +38,7 @@ $this->Html
 		<td><?php echo h($collection['Collection']['created']); ?>&nbsp;</td>
 		<td><?php echo h($collection['Collection']['created_by']); ?>&nbsp;</td>
 		<td><?php echo h($collection['Collection']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($collection['Collection']['modified_by']); ?>&nbsp;</td>
+		<td><?php echo h($collection['Collection']['updated_by']); ?>&nbsp;</td>
 		<td class="item-actions">
 			<?php echo $this->Croogo->adminRowAction('', array('action' => 'view', $collection['Collection']['id']), array('icon' => 'eye-open')); ?>
 			<?php echo $this->Croogo->adminRowAction('', array('action' => 'edit', $collection['Collection']['id']), array('icon' => 'pencil')); ?>

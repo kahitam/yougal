@@ -10,6 +10,7 @@ class Collection extends YougalAppModel {
 
 	public $actsAs = array(
 		'Params',
+		'Croogo.Trackable',
 	);
 
 /**

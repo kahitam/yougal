@@ -20,7 +20,7 @@ class YougalSchema extends CakeSchema {
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'created_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'modified_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+		'updated_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array(
 			'charset' => 'utf8',
@@ -37,7 +37,7 @@ class YougalSchema extends CakeSchema {
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'created_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'modified_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+		'updated_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array(
 			'charset' => 'utf8',
@@ -77,7 +77,7 @@ class YougalSchema extends CakeSchema {
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'created_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'modified_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
+		'updated_by' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array(
 			'charset' => 'utf8',

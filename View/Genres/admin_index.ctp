@@ -18,7 +18,7 @@ $this->Html
 		<th><?php echo $this->Paginator->sort('created'); ?></th>
 		<th><?php echo $this->Paginator->sort('created_by'); ?></th>
 		<th><?php echo $this->Paginator->sort('modified'); ?></th>
-		<th><?php echo $this->Paginator->sort('modified_by'); ?></th>
+		<th><?php echo $this->Paginator->sort('updated_by'); ?></th>
 		<th class="actions"><?php echo __d('croogo', 'Actions'); ?></th>
 	</tr>
 	<?php foreach ($genres as $genre): ?>
@@ -30,7 +30,7 @@ $this->Html
 		<td><?php echo h($genre['Genre']['created']); ?>&nbsp;</td>
 		<td><?php echo h($genre['Genre']['created_by']); ?>&nbsp;</td>
 		<td><?php echo h($genre['Genre']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($genre['Genre']['modified_by']); ?>&nbsp;</td>
+		<td><?php echo h($genre['Genre']['updated_by']); ?>&nbsp;</td>
 		<td class="item-actions">
 			<?php echo $this->Croogo->adminRowAction('', array('action' => 'view', $genre['Genre']['id']), array('icon' => 'eye-open')); ?>
 			<?php echo $this->Croogo->adminRowAction('', array('action' => 'edit', $genre['Genre']['id']), array('icon' => 'pencil')); ?>
