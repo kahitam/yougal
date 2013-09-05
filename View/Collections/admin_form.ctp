@@ -1,35 +1,39 @@
 <?php
-$this->viewVars['title_for_layout'] = __d('croogo', 'Genres');
+$this->viewVars['title_for_layout'] = __d('croogo', 'Collections');
 $this->extend('/Common/admin_edit');
 
 $this->Html
 	->addCrumb('', '/admin', array('icon' => 'home'))
-	->addCrumb(__d('croogo', 'Genres'), array('action' => 'index'));
+	->addCrumb(__d('croogo', 'Collections'), array('action' => 'index'));
 
 if ($this->action == 'admin_edit') {
-	$this->Html->addCrumb($this->data['Genre']['name'], '/' . $this->request->url);
-	$this->viewVars['title_for_layout'] = 'Genres: ' . $this->data['Genre']['name'];
+	$this->Html->addCrumb($this->data['Collection']['name'], '/' . $this->request->url);
+	$this->viewVars['title_for_layout'] = 'Collections: ' . $this->data['Collection']['name'];
 } else {
 	$this->Html->addCrumb(__d('croogo', 'Add'), '/' . $this->request->url);
 }
 
-echo $this->Form->create('Genre');
+echo $this->Form->create('Collection');
 
 ?>
-<div class="genres row-fluid">
+<div class="collections row-fluid">
 	<div class="span8">
 		<ul class="nav nav-tabs">
 		<?php
-			echo $this->Croogo->adminTab(__d('croogo', 'Genre'), '#genre');
+			echo $this->Croogo->adminTab(__d('croogo', 'Collection'), '#collection');
+			echo $this->Croogo->adminTab(__d('croogo', 'Params'), '#collection-params');
 			echo $this->Croogo->adminTabs();
 		?>
 		</ul>
 
 		<div class="tab-content">
-			<div id='genre' class="tab-pane">
+			<div id='collection' class="tab-pane">
 			<?php
 				echo $this->Form->input('id');
 				$this->Form->inputDefaults(array('label' => false, 'class' => 'span10'));
+				echo $this->Form->input('user_id', array(
+					'label' => 'User Id',
+				));
 				echo $this->Form->input('name', array(
 					'label' => 'Name',
 				));
@@ -39,16 +43,16 @@ echo $this->Form->create('Genre');
 				echo $this->Form->input('description', array(
 					'label' => 'Description',
 				));
-				echo $this->Form->input('created_by', array(
-					'label' => 'Created By',
-				));
-				echo $this->Form->input('modified_by', array(
-					'label' => 'Modified By',
-				));
-				echo $this->Form->input('Video');
-				echo $this->Croogo->adminTabs();
 			?>
 			</div>
+			<div id='collection-params' class="tab-pane">
+			<?php
+				echo $this->Form->input('params', array(
+					'label' => 'Params',
+				));
+			?>
+			</div>
+			<?php echo $this->Croogo->adminTabs(); ?>
 		</div>
 
 	</div>
@@ -59,6 +63,9 @@ echo $this->Form->create('Genre');
 			$this->Form->button(__d('croogo', 'Apply'), array('name' => 'apply')) .
 			$this->Form->button(__d('croogo', 'Save'), array('class' => 'btn btn-primary')) .
 			$this->Html->link(__d('croogo', 'Cancel'), array('action' => 'index'), array('class' => 'btn btn-danger')) .
+			$this->Form->input('status', array(
+				'label' => 'Status',
+			)) .
 			$this->Html->endBox();
 		?>
 	</div>

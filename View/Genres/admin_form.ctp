@@ -39,12 +39,6 @@ echo $this->Form->create('Genre');
 				echo $this->Form->input('description', array(
 					'label' => 'Description',
 				));
-				echo $this->Form->input('created_by', array(
-					'label' => 'Created By',
-				));
-				echo $this->Form->input('modified_by', array(
-					'label' => 'Modified By',
-				));
 				echo $this->Form->input('Video');
 				echo $this->Croogo->adminTabs();
 			?>
