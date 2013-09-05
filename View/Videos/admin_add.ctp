@@ -21,6 +21,7 @@ echo $this->Form->create('Video');
 		<ul class="nav nav-tabs">
 		<?php
 			echo $this->Croogo->adminTab(__d('croogo', 'Video'), '#video');
+			echo $this->Croogo->adminTab(__d('croogo', 'Params'), '#video-params');
 			echo $this->Croogo->adminTabs();
 		?>
 		</ul>
@@ -33,35 +34,18 @@ echo $this->Form->create('Video');
 				echo $this->Form->input('collection_id', array(
 					'label' => 'Collection Id',
 				));
-				echo $this->Form->input('title', array(
-					'label' => 'Title',
-				));
-				echo $this->Form->input('slug', array(
-					'label' => 'Slug',
-				));
 				echo $this->Form->input('url', array(
 					'label' => 'Url',
 				));
-				echo $this->Form->input('description', array(
-					'label' => 'Description',
-				));
-				echo $this->Form->input('author', array(
-					'label' => 'Author',
-				));
-				echo $this->Form->input('status', array(
-					'label' => 'Status',
-				));
+				echo $this->Form->input('Genre');
+				echo $this->Croogo->adminTabs();
+			?>
+			</div>
+			<div id='video-params' class="tab-pane">
+			<?php
 				echo $this->Form->input('params', array(
 					'label' => 'Params',
 				));
-				echo $this->Form->input('created_by', array(
-					'label' => 'Created By',
-				));
-				echo $this->Form->input('modified_by', array(
-					'label' => 'Modified By',
-				));
-				echo $this->Form->input('Genre');
-				echo $this->Croogo->adminTabs();
 			?>
 			</div>
 		</div>
@@ -74,6 +58,9 @@ echo $this->Form->create('Video');
 			$this->Form->button(__d('croogo', 'Apply'), array('name' => 'apply')) .
 			$this->Form->button(__d('croogo', 'Save'), array('class' => 'btn btn-primary')) .
 			$this->Html->link(__d('croogo', 'Cancel'), array('action' => 'index'), array('class' => 'btn btn-danger')) .
+			$this->Form->input('status', array(
+				'label' => 'Status',
+			)) .
 			$this->Html->endBox();
 		?>
 	</div>
