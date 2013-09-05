@@ -8,7 +8,7 @@ $this->Html
 
 ?>
 
-<div class="collections index">
+<div style="overflow-x: auto;" class="collections index">
 	<table class="table table-striped">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>

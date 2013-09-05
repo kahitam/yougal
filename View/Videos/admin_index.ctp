@@ -8,7 +8,7 @@ $this->Html
 
 ?>
 
-<div class="videos index">
+<div style="overflow-x: auto;" class="videos index">
 	<table class="table table-striped">
 	<tr>
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
